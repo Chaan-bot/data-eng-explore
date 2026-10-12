@@ -1,0 +1,22 @@
+# Raw + derived data: large and regenerable, never in git
+data/
+**/raw_downloaded_data/
+*.csv
+*.json
+*.tsv
+*.gz
+*.zip
+
+# Local secrets / overrides
+.env
+docker-compose.override.yml
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store

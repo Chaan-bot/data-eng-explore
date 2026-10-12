@@ -1,0 +1,44 @@
+                       Table "raw.games_csv"
+           Column           | Type | Collation | Nullable | Default 
+----------------------------+------+-----------+----------+---------
+ appid                      | text |           |          | 
+ name                       | text |           |          | 
+ release_date               | text |           |          | 
+ estimated_owners           | text |           |          | 
+ peak_ccu                   | text |           |          | 
+ required_age               | text |           |          | 
+ price                      | text |           |          | 
+ discount                   | text |           |          | 
+ dlc_count                  | text |           |          | 
+ about_the_game             | text |           |          | 
+ supported_languages        | text |           |          | 
+ full_audio_languages       | text |           |          | 
+ reviews                    | text |           |          | 
+ header_image               | text |           |          | 
+ website                    | text |           |          | 
+ support_url                | text |           |          | 
+ support_email              | text |           |          | 
+ windows                    | text |           |          | 
+ mac                        | text |           |          | 
+ linux                      | text |           |          | 
+ metacritic_score           | text |           |          | 
+ metacritic_url             | text |           |          | 
+ user_score                 | text |           |          | 
+ positive                   | text |           |          | 
+ negative                   | text |           |          | 
+ score_rank                 | text |           |          | 
+ achievements               | text |           |          | 
+ recommendations            | text |           |          | 
+ notes                      | text |           |          | 
+ average_playtime_forever   | text |           |          | 
+ average_playtime_two_weeks | text |           |          | 
+ median_playtime_forever    | text |           |          | 
+ median_playtime_two_weeks  | text |           |          | 
+ developers                 | text |           |          | 
+ publishers                 | text |           |          | 
+ categories                 | text |           |          | 
+ genres                     | text |           |          | 
+ tags                       | text |           |          | 
+ screenshots                | text |           |          | 
+ movies                     | text |           |          | 
+

@@ -1,0 +1,36 @@
+# Bare-bones Postgres for the data-eng-explore project.
+# Reachable from VS Code / DBeaver at localhost:${POSTGRES_PORT} over TCP.
+services:
+  db:
+    image: postgres:18.6
+    container_name: dex-pg
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-dex}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-dex}
+      POSTGRES_DB: ${POSTGRES_DB:-dex}
+    ports:
+      # host:container - 5433 on the host so it can never clash with a
+      # native Postgres or your `logistics` project on the default 5432.
+      - "${POSTGRES_PORT:-5433}:5432"
+    volumes:
+      # PG18+ images want the mount here, NOT at /var/lib/postgresql/data.
+      - pgdata:/var/lib/postgresql
+      # Mounted so server-side COPY can read your CSVs. Inside the
+      # container your repo root is /repo, so games.csv is at
+      # /repo/SteamGames/raw_downloaded_data/games.csv
+      - ./:/repo
+    command:
+      - postgres
+      # Enabled here because changing it later needs a full restart, and
+      # it is the one extension you will want from day one.
+      - -c
+      - shared_preload_libraries=pg_stat_statements
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-dex} -d ${POSTGRES_DB:-dex}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  pgdata:
